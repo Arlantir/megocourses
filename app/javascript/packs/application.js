@@ -6,3 +6,6 @@ require("bootstrap/dist/js/bootstrap")
 
 import '../stylesheets/application'
 import "@fortawesome/fontawesome-free/js/all"
+
+require("trix")
+require("@rails/actiontext")
