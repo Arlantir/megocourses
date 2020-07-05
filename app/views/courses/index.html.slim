@@ -12,6 +12,8 @@ table.table
         = t('.title_tab')
       th
         = t('.description_tab')
+      th
+        | Пользователь
       th[colspan="3"]
   tbody
     - @courses.each do |course|
@@ -20,6 +22,8 @@ table.table
           = course.title
         td
           = course.description.to_plain_text
+        td
+          = course.user
         td
           = link_to 'Show', course
         td
