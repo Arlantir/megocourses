@@ -14,14 +14,16 @@ gem 'webpacker', '~> 4.0'
 
 gem 'rails-i18n', '~> 6.0.0'
 
+gem 'devise'
+gem 'devise-i18n'
 gem 'faker'
-
 gem 'simple_form'
 gem 'slim'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :development do
