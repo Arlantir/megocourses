@@ -1,0 +1,16 @@
+ru:
+  # Перевод моделей
+  activerecord:
+    # Перевод названия моделей
+    models:
+      course: 'Курс'
+  
+    # Перевод атрибутов моделей
+    attributes:
+  
+  # Перевод вьюшек
+  courses:
+    index:
+      title: 'Курсы:'
+      title_tab: 'Название'
+      description_tab: 'Описание'
