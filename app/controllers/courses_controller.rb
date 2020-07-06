@@ -1,10 +1,12 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  # GET /courses
-  # GET /courses.json
   def index
-    @courses = Course.all
+    if params[:title]
+      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%")
+    else
+      @courses = Course.all
+    end
   end
 
   # GET /courses/1
