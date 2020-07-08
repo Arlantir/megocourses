@@ -90,6 +90,8 @@ GEM
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
     foreman (0.87.1)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.3)
@@ -251,6 +253,7 @@ DEPENDENCIES
   devise-i18n
   faker
   foreman
+  friendly_id (~> 5.2.4)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

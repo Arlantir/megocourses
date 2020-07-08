@@ -17,6 +17,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
+gem 'friendly_id', '~> 5.2.4'
 gem 'simple_form'
 gem 'slim'
 
