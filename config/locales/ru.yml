@@ -4,13 +4,35 @@ ru:
     # Перевод названия моделей
     models:
       course: 'Курс'
+      title: 'Название'
+      description: 'Описание'
   
     # Перевод атрибутов моделей
     attributes:
   
   # Перевод вьюшек
+  layouts:
+    header:
+      home: 'Домой'
+      courses: 'Курсы'
+      new_courses: 'Добавить курс'
+      another_link: 'Другие ссылки'
+      account_setting: 'Настройка аккаунта'
+      sign_out: 'Выход'
+      sign_up: 'Регистрация'
+      log_in: 'Войти'
+      search: 'Поиск'
+
+  home:
+    index:
+      title: 'Что бы Вы хотели узнать сегодня?'
+      search: 'Поиск'
+
   courses:
     index:
       title: 'Курсы:'
       title_tab: 'Название'
       description_tab: 'Описание'
+
+
+  

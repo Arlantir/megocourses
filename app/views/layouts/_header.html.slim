@@ -1,5 +1,5 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand[href='#'] Megocourses
+  a.navbar-brand[href='/'] Megocourses
 
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
@@ -9,17 +9,22 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li.nav-item[class="#{'active font-weight-bold' if current_page?(root_path)}"]
           = link_to(root_path, class: 'nav-link') do
             .fa.fa-home
-            |&nbspHome
+            = t('.home')
 
         li.nav-item[class="#{'active font-weight-bold' if current_page?(courses_path)}"]
           = link_to(courses_path, class: 'nav-link') do
             .fa.fa-book
-            |&nbspCourses
+            = t('.courses')
+
+        li.nav-item[class="#{'active font-weight-bold' if current_page?(new_course_path)}"]
+          = link_to(new_course_path, class: 'nav-link') do
+            .fa.fa-plus
+            = t('.new_courses')
 
       .form-inline.my-2.my-lg-0
         = form_tag(courses_path, method: :get) do
           .input-group
-            = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: 'Search', class: 'form-control-sm'
+            = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: t('layouts.header.search'), class: 'form-control-sm'
             span.input-group-append
               button.btn.btn-primary.btn-sm[type="submit"]
                 span.fa.fa-search[aria-hidden='true']
@@ -28,7 +33,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li.nav-item[class="#{'active font-weight-bold' if current_page?(root_path)}"]
           = link_to(root_path, class: 'nav-link') do
             .fa.fa-home
-            |&nbspAnother link
+            = t('.another_link')
             
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
@@ -36,15 +41,15 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           .dropdown-menu.dropdown-menu-right[aria-labelledby='navbarDropdown']
             = link_to(edit_user_registration_path, class: 'dropdown-item') do
               .fa.fa-cog
-              b &nbspAccout Setting
+              b = t('.account_setting')
             = link_to(destroy_user_session_path, method: :delete, class: 'dropdown-item') do
               .fa.fa-sign-out-alt
-              b &nbspSign out
+              b = t('.sign_out')
 
     - else
       ul.navbar-nav
         li.nav-item
-          = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+          = link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'
         li.nav-item
-          = link_to 'Log In', new_user_session_path, class: 'nav-link'
+          = link_to t('.log_in'), new_user_session_path, class: 'nav-link'
   

@@ -3,5 +3,17 @@
 @import "./actiontext.scss";
 
 trix-editor.form-control {
-    height: auto;
+  height: auto;
+}
+
+.navbar {
+  margin-bottom: 0.5rem;
+}
+
+.svg-inline--fa {
+  margin-right: 0.3rem;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  margin-right: 0.2rem;
 }
