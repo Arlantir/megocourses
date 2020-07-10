@@ -1,0 +1,28 @@
+.card
+  .card-header
+    .fa.fa-user
+    = user.email
+  .card-footer
+    span> Signed up
+    = time_ago_in_words(user.created_at)
+    span>  ago
+  .card-footer
+    = 'sign_in_count'.humanize
+    |&nbsp;
+    = user.sign_in_count
+    .row
+    = 'current_sign_in_at'.humanize
+    |&nbsp;
+    = user.current_sign_in_at
+    .row
+    = 'last_sign_in_at'.humanize
+    |&nbsp;
+    = user.last_sign_in_at
+    .row
+    = 'current_sign_in_ip'.humanize
+    |&nbsp;
+    = user.current_sign_in_ip
+    .row
+    = 'last_sign_in_ip'.humanize
+    |&nbsp;
+    = user.last_sign_in_ip
