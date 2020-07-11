@@ -29,6 +29,7 @@ end
 
 group :development do
   gem 'foreman'
+  gem 'letter_opener'
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
 end
