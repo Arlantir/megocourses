@@ -11,9 +11,13 @@ trix-editor.form-control {
 }
 
 .svg-inline--fa {
-  margin-right: 0.3rem;
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
 }
 
 .btn-sm, .btn-group-sm > .btn {
   margin-right: 0.2rem;
 }
+
+.form-control.is-invalid{ background-image: none; }
+.form-control.is-valid{ background-image: none; }
