@@ -1,5 +1,8 @@
 class Course < ApplicationRecord
   extend FriendlyId
+
+  LANGUAGES = %i(English Russian Polish).freeze
+  LEVELS = %i(Beginner Itermediate Advanced).freeze
   
   belongs_to :user
 
@@ -9,4 +12,12 @@ class Course < ApplicationRecord
   has_rich_text :description
 
   friendly_id :title, use: :slugged
+
+  def self.languages
+    LANGUAGES.map { |language| [language, language] }
+  end
+
+  def self.levels
+    LEVELS.map { |level| [level, level] }
+  end
 end

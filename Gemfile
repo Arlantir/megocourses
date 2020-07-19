@@ -18,6 +18,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
 gem 'friendly_id', '~> 5.2.4'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'simple_form'
 gem 'slim'
 
