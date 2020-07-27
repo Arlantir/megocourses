@@ -21,6 +21,7 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'simple_form'
 gem 'slim'
+gem 'public_activity'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
