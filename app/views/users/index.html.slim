@@ -1,3 +1,9 @@
+h3
+  .text-center
+    |Users&nbsp;
+    .badge.badge-info
+      = @users.count
+
 .card-columns
   - @users.each do |user|
     = render 'users/user', user: user
@@ -7,8 +13,8 @@
   = f.search_field :sign_in_count_eq, placeholder: 'sign in count'
   = f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count'
   = f.submit
-= link_to users_path, class: 'btn btn-sm btn-secondary' do
-  .fa.fa-sync-alt
+  = link_to users_path, class: 'btn btn-sm btn-secondary' do
+    .fa.fa-sync-alt
 
 table.table.table-bordered
   thead
