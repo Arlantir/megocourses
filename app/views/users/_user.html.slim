@@ -1,12 +1,12 @@
 .card
   .card-header
     .fa.fa-user
-    span>
+    |&nbsp;
     = user.email
   .card-footer
-    span> Signed up
+    |&nbsp; Signed up
     = time_ago_in_words(user.created_at)
-    span>  ago
+    |&nbsp;  ago
   .card-footer
     = 'sign_in_count'.humanize
     |&nbsp;
@@ -41,4 +41,5 @@
     - user.roles.each do |role|
       .badge.badge-info
         = role.name
-      span>
+      |&nbsp;
+    = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
