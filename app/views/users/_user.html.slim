@@ -1,6 +1,7 @@
 .card
   .card-header
     .fa.fa-user
+    span>
     = user.email
   .card-footer
     span> Signed up
@@ -35,3 +36,9 @@
     - else
       |&nbsp;
       .badge.badge-danger No
+
+  .card-footer
+    - user.roles.each do |role|
+      .badge.badge-info
+        = role.name
+      span>
