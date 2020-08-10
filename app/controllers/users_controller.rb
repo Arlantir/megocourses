@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @users = @q.result(distinct: true)
   end
 
-  def edit; end
+  def edit
+    authorize @user
+  end
 
   def update
     if @user.update(user_params)

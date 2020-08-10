@@ -10,7 +10,7 @@ ul.list-group
       span> = activity.id
       span> = activity.trackable_type
       span> = activity.trackable_id
-      span> = link_to activity.trackable.title, activity.trackable
+      span> = link_to activity.trackable&.title, activity.trackable
       span> = activity.key
       span> = activity.parameters
       span> = activity.owner

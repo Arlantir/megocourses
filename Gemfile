@@ -18,11 +18,12 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
 gem 'friendly_id', '~> 5.2.4'
+gem 'public_activity'
+gem 'pundit'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rolify'
 gem 'simple_form'
 gem 'slim'
-gem 'public_activity'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
