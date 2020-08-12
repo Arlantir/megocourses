@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend FriendlyId
+
   rolify
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -9,6 +11,8 @@ class User < ApplicationRecord
   has_many :courses
 
   validate :must_have_a_role, on: :update
+
+  friendly_id :email, use: :slugged
   
   def to_s
     email
