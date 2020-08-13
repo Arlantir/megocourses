@@ -9,6 +9,8 @@ class Lesson < ApplicationRecord
 
   friendly_id :title, use: :slugged
 
+  has_rich_text :content
+
   def to_s
     title
   end

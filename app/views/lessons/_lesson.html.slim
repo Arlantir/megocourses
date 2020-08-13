@@ -2,7 +2,7 @@
   .card-header
     = link_to lesson.title, lesson
   .card-body
-    = lesson.content
+    = lesson.content.to_plain_text
     span>
     = lesson.course.title
   .card-footer

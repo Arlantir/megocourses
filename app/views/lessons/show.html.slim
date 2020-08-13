@@ -1,6 +1,8 @@
-p#notice
-  = notice
+= link_to 'Courses', courses_path
+|&nbsp/&nbsp
+= link_to @lesson.course.title, course_path(@lesson.course)
+|&nbsp/&nbsp
+= link_to @lesson.title, lesson_path(@lesson)
 
 = render 'lessons/lesson', lesson: @lesson
-
 = link_to 'Back to course', course_path(@lesson.course)
