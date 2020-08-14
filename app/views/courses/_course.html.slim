@@ -33,7 +33,7 @@
 				.text-right
 					.fa.fa-chalkboard-teacher
 					span>
-					= course.user.username
+					= link_to course.user.username, user_path(course.user)
 	- if current_user
 		- if policy(course).edit?
 			.card-footer

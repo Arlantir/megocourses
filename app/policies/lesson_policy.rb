@@ -1,12 +1,16 @@
-class CoursePolicy < ApplicationPolicy
+class LessonPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
+  def show?
+    user.has_role?(:admin) || edit?
+  end
+
   def edit?
-    user.has_role?(:admin) || record.user_id == user.id
+    record.course.user_id == user.id
   end
 
   def update?
@@ -14,11 +18,11 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def new?
-    user.has_role?(:teacher)
+    #user.has_role?(:teacher)
   end
 
   def create?
-    new?
+    #new?
   end
 
   def destroy?
