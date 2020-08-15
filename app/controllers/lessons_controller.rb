@@ -23,6 +23,8 @@ class LessonsController < ApplicationController
     @course = Course.friendly.find(params[:course_id])
     @lesson.course_id = @course.id
 
+    authorize @lesson
+
     if @lesson.save
       redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully created.'
     else
@@ -44,7 +46,7 @@ class LessonsController < ApplicationController
     authorize @lesson
     @lesson.destroy
 
-    redirect_to course_path(@course, @lesson), notice: 'Lesson was successfully destroyed.'
+    redirect_to course_path(@course), notice: 'Lesson was successfully destroyed.'
   end
 
   private
@@ -58,6 +60,6 @@ class LessonsController < ApplicationController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:title, :content, :course_id)
+      params.require(:lesson).permit(:title, :content)
     end
 end

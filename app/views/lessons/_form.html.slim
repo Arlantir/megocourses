@@ -4,8 +4,7 @@
 
   .form-inputs
     = f.input :title
-    = f.rich_text_area :content
-    = f.input :course_id, input_html: { value: @lesson.course_id || params[:course_id] }, as: :hidden
+    = f.input :content, as: :rich_text_area
 
   .form-actions
     = f.button :submit

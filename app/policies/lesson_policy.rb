@@ -22,7 +22,7 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def create?
-    #new?
+    edit?
   end
 
   def destroy?
