@@ -115,6 +115,14 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  email: {
+    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    email_prefix: '[PREFIX] ',
+    sender_address: %{"notifier error" <support@megocourses.herokuapp.com>},
+    exception_recipients: ENV['ERROR_EMAIL']
+  }
+
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],

@@ -95,6 +95,9 @@ GEM
       devise (>= 4.7.1)
     diff-lcs (1.4.4)
     erubi (1.9.0)
+    exception_notification (4.4.3)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     faker (2.13.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
@@ -272,6 +275,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   devise-i18n
+  exception_notification
   faker
   foreman
   friendly_id (~> 5.2.4)
