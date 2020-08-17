@@ -1,6 +1,14 @@
+= link_to 'Courses', courses_path
+|&nbsp/&nbsp
+= link_to @course.title, course_path(@course)
+|&nbsp/&nbsp
+|New 
+
 .card
   .card-header
-    h1
+    h3
+      .far.fa-check-square
+      |&nbsp
       | New Lesson
   .card-body
     = render 'form', lesson: @lesson
