@@ -14,6 +14,7 @@ gem 'webpacker', '~> 4.0'
 
 gem 'rails-i18n', '~> 6.0.0'
 
+gem 'pagy', '~> 3.5'
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
