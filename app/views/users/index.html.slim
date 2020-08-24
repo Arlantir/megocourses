@@ -1,12 +1,13 @@
+- content_for :title do
+  | Megocourses
+  |&nbsp|&nbsp
+  |All users
+
 h3
   .text-center
     |Users&nbsp;
     .badge.badge-info
       = @users.count
-
-/ .card-columns
-/   - @users.each do |user|
-/     = render 'users/user', user: user
 
 = search_form_for @q do |f|
   = f.search_field :email_cont, placeholder: 'email'
@@ -37,7 +38,14 @@ table.table.table-bordered
     - @users.each do |user|
       tr
         td= user.id
-        td= user.email
+        td
+          |&nbsp;
+          - if user.online?
+            .text-success.far.fa-circle
+          - else
+            .text-danger.far.fa-circle
+          |&nbsp;
+          = link_to user.email, user_path(user)
         td= user.created_at
         td= user.sign_in_count
         td= user.current_sign_in_at

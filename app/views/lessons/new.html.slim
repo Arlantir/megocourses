@@ -1,3 +1,9 @@
+- content_for :title do
+  | Megocourses
+  |&nbsp/&nbsp Course &nbsp
+  = @course.title
+  |&nbsp/&nbsp New lesson &nbsp
+
 = link_to 'Courses', courses_path
 |&nbsp/&nbsp
 = link_to @course.title, course_path(@course)
