@@ -9,6 +9,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
   
   has_many :courses
+  has_many :enrollments
 
   validate :must_have_a_role, on: :update
 

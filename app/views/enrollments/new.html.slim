@@ -1,0 +1,14 @@
+- content_for :title do
+  | Megocourses
+  |&nbsp|&nbsp
+  |New enrollment
+
+.card
+  .card-header
+	h3 
+      .fa.fa-lock-open
+      |&nbsp New Enrollment
+  .card-body
+    = render 'form', enrollment: @enrollment
+  .card-footer
+    = link_to 'Back', enrollments_path

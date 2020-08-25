@@ -12,51 +12,51 @@ h3
 = search_form_for @q do |f|
   = f.search_field :email_cont, placeholder: 'email'
   |&nbsp
-  = f.search_field :sign_in_count_eq, placeholder: 'sign in count'
-  |&nbsp
-  = f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count'
-  |&nbsp
+  / = f.search_field :sign_in_count_eq, placeholder: 'sign in count'
+  / |&nbsp
+  / = f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count'
+  / |&nbsp
   = f.submit
   |&nbsp
-  = link_to users_path, class: 'btn btn-sm btn-secondary' do
-    .fa.fa-sync-alt
+  = link_to 'refresh', users_path
 
-table.table.table-bordered
-  thead
-    tr
-      th id
-      th= sort_link(@q, :email)
-      th created_at
-      th= 'sign_in_count'.humanize
-      th= 'current_sign_in_at'.humanize
-      th= 'last_sign_in_at'.humanize
-      th= 'current_sign_in_ip'.humanize
-      th= 'last_sign_in_ip'.humanize
-      th Confirmed?
-      th Roles
-  tbody
-    - @users.each do |user|
+.table-responsive  
+  table.table.table-bordered.table-striped.table-sm
+    thead
       tr
-        td= user.id
-        td
-          |&nbsp;
-          - if user.online?
-            .text-success.far.fa-circle
-          - else
-            .text-danger.far.fa-circle
-          |&nbsp;
-          = link_to user.email, user_path(user)
-        td= user.created_at
-        td= user.sign_in_count
-        td= user.current_sign_in_at
-        td= user.last_sign_in_at
-        td= user.current_sign_in_ip
-        td= user.last_sign_in_ip
-        td= user.confirmed?
-        td 
-          - user.roles.each do |role|
-            .badge.badge-info
-              = role.name
+        th id
+        th= sort_link(@q, :email)
+        th created_at
+        th= 'sign_in_count'.humanize
+        th= 'current_sign_in_at'.humanize
+        th= 'last_sign_in_at'.humanize
+        th= 'current_sign_in_ip'.humanize
+        th= 'last_sign_in_ip'.humanize
+        th Confirmed?
+        th Roles
+    tbody
+      - @users.each do |user|
+        tr
+          td= user.id
+          td
             |&nbsp;
-          - if policy(user).edit?
-            = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
+            - if user.online?
+              .text-success.far.fa-circle
+            - else
+              .text-danger.far.fa-circle
+            |&nbsp;
+            = link_to user.email, user_path(user)
+          td= user.created_at
+          td= user.sign_in_count
+          td= user.current_sign_in_at
+          td= user.last_sign_in_at
+          td= user.current_sign_in_ip
+          td= user.last_sign_in_ip
+          td= user.confirmed?
+          td 
+            - user.roles.each do |role|
+              .badge.badge-info
+                = role.name
+              |&nbsp;
+            - if policy(user).edit?
+              = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
