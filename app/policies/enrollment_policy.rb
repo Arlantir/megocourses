@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class EnrollmentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,10 +10,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    index?
+    record.user_id == user.id
   end
 
   def update?
+    edit?
+  end
+
+  def destroy?
     index?
   end
 end
