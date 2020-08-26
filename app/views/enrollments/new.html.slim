@@ -6,9 +6,14 @@
 .card
   .card-header
 	h3 
-      .fa.fa-lock-open
-      |&nbsp New Enrollment
+      .fa.fa-graduation-cap
+      |&nbsp
+      = link_to @course.title, course_path(@course)
+      hr
+          .fa.fa-lock-open
+          |&nbsp Buy course
   .card-body
-    = render 'form', enrollment: @enrollment
+    = form_tag course_enrollments_path(@course) do
+      = submit_tag "Pay #{@course.price}", class: 'btn btn-lg btn-success'
   .card-footer
-    = link_to 'Back', enrollments_path
+    = link_to 'Back', course_path(@course)

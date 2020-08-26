@@ -1,5 +1,6 @@
 class EnrollmentsController < ApplicationController
   before_action :set_enrollment, only: %i[show edit update destroy]
+  before_action :set_course, only: %i[new create]
 
   def index
     @enrollments = Enrollment.all
@@ -16,13 +17,12 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    @enrollment = Enrollment.new(enrollment_params)
-    @enrollment.price = @enrollment.course.price
-
-    if @enrollment.save
-      redirect_to @enrollment, notice: 'Enrollment was successfully created.'
+    if @course.price.positive?
+      flash[:alert] = 'You can not access paid course yet.'
+      redirect_to new_course_enrollment_path(@course)
     else
-      render :new
+      @enrollment = current_user.buy_course(@course)
+      redirect_to course_path(@course), notice: 'You are enrolled!'
     end
   end
 
@@ -36,17 +36,20 @@ class EnrollmentsController < ApplicationController
 
   def destroy
     @enrollment.destroy
-    
     redirect_to enrollments_url, notice: 'Enrollment was successfully destroyed.'
   end
 
   private
+
+  def set_course
+    @course = Course.friendly.find(params[:course_id])
+  end
 
   def set_enrollment
     @enrollment = Enrollment.find(params[:id])
   end
 
   def enrollment_params
-    params.require(:enrollment).permit(:course_id, :user_id, :rating, :review)
+    params.require(:enrollment).permit(:rating, :review)
   end
 end

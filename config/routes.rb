@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :lessons
+    resources :enrollments, only: %i[new create]
   end
 
   resources :users, only: %i[index edit show update]
