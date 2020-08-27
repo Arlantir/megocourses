@@ -1,17 +1,17 @@
 - content_for :title do
-  | Megocourses
+  |Megocourses
   |&nbsp
-	|&nbsp Editing &nbsp
+	|&nbspEditing&nbsp
   = @enrollment
 
 .card
   .card-header
 	h3 
-      .fa.fa-lock-open
-      |&nbsp Editing Enrollment
+      .text-warning.fa.fa-star
+      |&nbspAdd a Review
   .card-body
     = render 'form', enrollment: @enrollment
   .card-footer
-    = link_to 'Show', @enrollment
+    = link_to 'Show Review', @enrollment
     |  | 
-    = link_to 'Back', enrollments_path
+    = link_to 'Back to course', course_path(@enrollment.course)

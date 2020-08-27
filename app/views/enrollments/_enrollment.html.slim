@@ -1,0 +1,26 @@
+.card
+  .card-header
+    .fa.fa-user
+    |&nbsp
+    = link_to enrollment.user.username, user_path(enrollment.user)
+    |&nbsp
+    .fa.fa-clock
+    |&nbsp
+    = time_ago_in_words(enrollment.updated_at)
+    |&nbsp
+    .fa.fa-graduation-cap
+    |&nbsp
+    = link_to enrollment.course, course_path(enrollment.course)
+  .card-body
+    .text-warning.fa.fa-star
+    |&nbsp
+    b= enrollment.rating
+    |&nbsp
+    .fa.fa-comment
+    |&nbsp
+    small= enrollment.review
+  - if current_user
+    .card-footer
+      - if policy(enrollment).edit?
+        = link_to 'Edit Review', edit_enrollment_path(enrollment)
+    
