@@ -1,39 +1,40 @@
 .card
 	.card-header
 		.fa.fa-graduation-cap
-		span>
+		|&nbsp
 		= link_to course.title, course_path(course)
 	.card-body
 		small= simple_format(course.short_description)
 	.card-footer
 		.text-center
 			= enrollment_button(course)
-			/ = number_to_currency(course.price	)
+			.row
+			= review_button(course)
 	.card-footer
 		.fa.fa-tasks
-		span>
+		|&nbsp
 		= course.lessons.count
 	.card-footer
 		.row
 			.col-md-6
 				.fa.fa-globe-africa
-				span>
+				|&nbsp
 				= course.language
 			.col-md-6
 				.text-right
 					.fa.fa-signal
-					span>
+					|&nbsp
 					= course.level
 	.card-footer
 		.row
 			.col-md-6
 				.far.fa-clock
-				span>
+				|&nbsp
 				= course.created_at.strftime('%d-%b-%Y')
 			.col-md-6
 				.text-right
 					.fa.fa-chalkboard-teacher
-					span>
+					|&nbsp
 					= link_to course.user.username, user_path(course.user)
 	- if current_user
 		- if policy(course).edit?
