@@ -60,3 +60,5 @@ h3
               |&nbsp;
             - if policy(user).edit?
               = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
+
+  == pagy_bootstrap_nav(@pagy)
