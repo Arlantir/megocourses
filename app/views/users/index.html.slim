@@ -9,16 +9,13 @@ h3
     .badge.badge-info
       = @users.count
 
-= search_form_for @q do |f|
-  = f.search_field :email_cont, placeholder: 'email'
-  |&nbsp
-  / = f.search_field :sign_in_count_eq, placeholder: 'sign in count'
-  / |&nbsp
-  / = f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count'
-  / |&nbsp
-  = f.submit
-  |&nbsp
-  = link_to 'refresh', users_path
+.form-inline
+  = search_form_for @q do |f|
+    = f.search_field :email_cont, placeholder: 'email'
+    |&nbsp
+    = f.submit
+    |&nbsp
+    = link_to 'refresh', users_path
 
 .table-responsive  
   table.table.table-bordered.table-striped.table-sm
