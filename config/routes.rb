@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index edit show update]
-  get 'home/activity'
+  get 'activity', to: 'home#activity'
   root 'home#index'
 end
