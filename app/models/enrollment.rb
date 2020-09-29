@@ -14,7 +14,7 @@ class Enrollment < ApplicationRecord
 
   validate :cant_subscribe_to_own_course
 
-  scope :panding_review, -> { where(rating: [0, nil, ''], review: [0, nil, '']) }
+  scope :pending_review, -> { where(rating: [0, nil, ''], review: [0, nil, '']) }
 
   friendly_id :to_s, use: :slugged
 
